@@ -15,7 +15,6 @@
         </div>
         <ul class="navbar">
             <li><a href="#">Liste des livres</a></li>
-            <li><a href="write.html">Enregistrer un livre</a></li>
             <li><a href="about.html">À propos</a></li>
         </ul>
     </header>
@@ -24,8 +23,26 @@
         <p class="no-book">Aucun livre est enregistré, ajoutez en un !</p>
         <ul class="list-items">
         </ul>
+        <h1>Enregistrer un livre</h1>
+        <form class="form-entry">
+            <div class="form-entry">
+                <label for="text">Titre:</label>
+                <input type="text" class="user-entry book-title" required>
+            </div>
+            <div class="form-entry">
+                <label for="text">Auteur:</label>
+                <input type="text" class="user-entry book-author" required>
+            </div>
+            <div class="form-entry">
+                <label for="text">Nombre de pages:</label>
+                <input type="number" class="user-entry book-pages" placeholder="1" min="1" required>
+            </div>
+            <button type="submit" class="button-send">Envoyer</button>
+            <button class="button-erase">Effacer</button>
+        </form>
+        <p class="add-success hidden">Le livre à été ajouté avec succès.</p>
     </main>
 
-    <script src="./read.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
