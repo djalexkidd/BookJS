@@ -32,7 +32,7 @@ h1 {
 }
 
 /* Barre de navigation */
-ul {
+.navbar {
     display: inline-flex;
     list-style-type: none;
     margin-bottom: 20px;
@@ -40,7 +40,7 @@ ul {
 }
 
 /* Espacement des liens */
-ul li {
+.navbar li {
     margin-right: 10px;
 }
 
@@ -104,4 +104,19 @@ button {
 
 .hidden {
     display: none;
+}
+
+.trash {
+    border: none;
+    background: none;
+    padding: 0;
+    float: right;
+}
+
+.list-items {
+    background-color: white;
+}
+
+.list-items li {
+    border: solid 2px;
 }
