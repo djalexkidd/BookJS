@@ -1,9 +1,8 @@
 const inputField = document.querySelectorAll("input")
 const sendForm = document.querySelector("form")
 const resetAll = document.querySelector(".button-erase")
-const addStatus = document.querySelector(".add-success")
-const listItems = document.querySelector('.list-items');
-const noBook = document.querySelector('.no-book');
+const listItems = document.querySelector('.list-items')
+const noBook = document.querySelector('.no-book')
 
 const bookTitle = document.querySelector(".book-title")
 const bookAuthor = document.querySelector(".book-author")
@@ -12,23 +11,7 @@ const bookPages = document.querySelector(".book-pages")
 sendForm.addEventListener('submit', submitBook)
 
 // On créé un objet qui va nous permettre d'exploiter des données
-let bookList = {
-    book1: {
-        title : "1984",
-        author: "George Orwell",
-        pages: "328"
-    },
-    book2: {
-        title : "Comment cuisiner des pâtes",
-        author: "Philippe Etchebest",
-        pages: "420"
-    },
-    book3: {
-        title : "Biographie de Eddy Malou",
-        author: "Eddy Malou",
-        pages: "69"
-    }
-}
+let bookList = {}
 
 // Efface le formulaire
 resetAll.addEventListener('click', (e) => {
@@ -41,7 +24,6 @@ resetAll.addEventListener('click', (e) => {
 // Envoyer les informations du livre
 function submitBook(e) {
     e.preventDefault() // N'actualise pas la page
-    addStatus.classList.toggle("hidden") // Affiche le texte pour dire que le livre à été enregistré
 
     const timestamp = Date.now();
     bookList[timestamp] = {
@@ -56,8 +38,6 @@ function submitBook(e) {
 
     createHTML(bookList[timestamp], timestamp);
     saveObj();
-
-    setTimeout(() => {addStatus.classList.toggle("hidden")}, 5000) // Attendre 5 secondes pour cacher le texte
 }
 
 // Boucler sur l'objet
@@ -76,7 +56,8 @@ function createHTML(objet, key) {
     if(!objet.title) return;
     const html = `
             <span>${objet.title} par ${objet.author} (${objet.pages} pages)</span>
-            <button name="trash" class="trash">🗑️</button>
+            <button name="edit" class="edit">✏️</button>
+            <button name="trash" class="trash">❌</button>
     `
 
     const li = document.createElement('li');
