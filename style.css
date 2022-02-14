@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Importation de la police */
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/Roboto.ttf") format("truetype");
+}   
+
+body {
+    background-color: rgb(214, 214, 214);
+    font-family: "Roboto";
+}
+
+/* HEADER */
+
+/* Logo du site */
+.logo {
+    height: 195px;
+}
+
+/* Pour centrer verticalement le titre du site */
+.top-bar {
+    display: flex;
+}
+
+h1 {
+    align-self: center;
+}
+
+/* Barre de navigation */
+ul {
+    display: inline-flex;
+    list-style-type: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Espacement des liens */
+ul li {
+    margin-right: 10px;
+}
+
+/* CONTENU DE LA PAGE (main) */
+
+main {
+    line-height: 2;
+}
+
+form.form-entry {
+    display: table;
+}
+
+div.form-entry {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+
+button {
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.button-send {
+    background-color: #4CAF50;
+    border: solid 2px white;
+}
+  
+.button-send:hover {
+    background-color: white;
+    color: black;
+    border: solid 2px #4CAF50;
+}
+
+.button-erase {
+    background-color: #f44336;
+    border: solid 2px white;
+}
+  
+.button-erase:hover {
+    background-color: white;
+    color: black;
+    border: solid 2px #f44336;
+}
+
+.hidden {
+    display: none;
+}
