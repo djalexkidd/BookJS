@@ -25,7 +25,7 @@ resetAll.addEventListener('click', (e) => {
 function submitBook(e) {
     e.preventDefault() // N'actualise pas la page
 
-    const timestamp = Date.now();
+    const timestamp = Date.now()
     bookList[timestamp] = {
         title: bookTitle.value,
         author: bookAuthor.value,
@@ -36,54 +36,54 @@ function submitBook(e) {
         inputField[i].value = "" // Efface le formulaire
     }
 
-    createHTML(bookList[timestamp], timestamp);
-    saveObj();
+    createHTML(bookList[timestamp], timestamp)
+    saveObj()
 }
 
 // Boucler sur l'objet
 function loadHTML() {
     if(!window.localStorage.getItem('data')) return
     const data = JSON.parse(window.localStorage.getItem('data'))
-    bookList = data;
-    Object.keys(bookList).map(key => createHTML(bookList[key], key));
+    bookList = data
+    Object.keys(bookList).map(key => createHTML(bookList[key], key))
     checkBookNumber()
 }
 
 // Charge les éléments de la liste quand la page est chargée
-window.addEventListener('load', loadHTML);
+window.addEventListener('load', loadHTML)
 
 function createHTML(objet, key) {
-    if(!objet.title) return;
+    if(!objet.title) return
     const html = `
             <span>${objet.title} par ${objet.author} (${objet.pages} pages)</span>
             <button name="edit" class="edit">✏️</button>
             <button name="trash" class="trash">❌</button>
     `
 
-    const li = document.createElement('li');
-    li.classList.add('item');
-    li.setAttribute('data-key', key);
-    li.innerHTML = html;
-    listItems.insertBefore(li, listItems.firstChild);
+    const li = document.createElement('li')
+    li.classList.add('item')
+    li.setAttribute('data-key', key)
+    li.innerHTML = html
+    listItems.insertBefore(li, listItems.firstChild)
 
-    li.children.trash.onclick = toBin;
-    li.children.edit.onclick = editBook;
+    li.children.trash.onclick = toBin
+    li.children.edit.onclick = editBook
 
     checkBookNumber()
 }
 
 // Supprime une entrée dans la liste
 function toBin() {
-    this.parentNode.remove();
-    const key = this.parentNode.getAttribute('data-key');
-    delete bookList[key];
-    saveObj();
+    this.parentNode.remove()
+    const key = this.parentNode.getAttribute('data-key')
+    delete bookList[key]
+    saveObj()
     checkBookNumber()
 }
 
 // Sauvegarde l'objet dans le LocalStorage
 function saveObj() {
-    window.localStorage.setItem('data', JSON.stringify(bookList));
+    window.localStorage.setItem('data', JSON.stringify(bookList))
 }
 
 // Cette fonction vérifie si un livre est présent dans la liste
@@ -102,4 +102,9 @@ function editBook() {
     bookTitle.value = bookList[key].title
     bookAuthor.value = bookList[key].author
     bookPages.value = bookList[key].pages
+
+    this.parentNode.remove()
+    delete bookList[key]
+
+    checkBookNumber()
 }
