@@ -47,6 +47,7 @@ function submitBook(e) {
 
     createHTML(bookList[timestamp], timestamp)
     saveObj()
+    bookPages.value = 1
 }
 
 // Boucler sur l'objet
@@ -117,3 +118,5 @@ function editBook() {
 
     checkBookNumber()
 }
+
+bookPages.value = 1
