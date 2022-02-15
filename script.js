@@ -1,12 +1,12 @@
 const inputField = document.querySelectorAll("input")
-const sendForm = document.querySelector("form")
-const resetAll = document.querySelector(".button-erase")
-const listItems = document.querySelector('.list-items')
-const noBook = document.querySelector('.no-book')
+const sendForm = document.querySelector("form") // Bouton pour envoyer le formulaire
+const resetAll = document.querySelector(".button-erase") // Bouton pour effacer le formulaire
+const listItems = document.querySelector('.list-items') // Liste des livres
+const noBook = document.querySelector('.no-book') // Texte quand il n'y a pas de livre dans la liste
 
-const bookTitle = document.querySelector(".book-title")
-const bookAuthor = document.querySelector(".book-author")
-const bookPages = document.querySelector(".book-pages")
+const bookTitle = document.querySelector(".book-title") // Champ du titre
+const bookAuthor = document.querySelector(".book-author") // Champ de l'auteur
+const bookPages = document.querySelector(".book-pages") // Nombre de pages
 
 sendForm.addEventListener('submit', submitBook)
 
@@ -46,10 +46,10 @@ function loadHTML() {
     const data = JSON.parse(window.localStorage.getItem('data'))
     bookList = data;
     Object.keys(bookList).map(key => createHTML(bookList[key], key));
-    noBook.classList.toggle("hidden") // Affiche le texte pour dire que le livre à été enregistré
     checkBookNumber()
 }
 
+// Charge les éléments de la liste quand la page est chargée
 window.addEventListener('load', loadHTML);
 
 function createHTML(objet, key) {
@@ -67,10 +67,12 @@ function createHTML(objet, key) {
     listItems.insertBefore(li, listItems.firstChild);
 
     li.children.trash.onclick = toBin;
+    li.children.edit.onclick = editBook;
 
     checkBookNumber()
 }
 
+// Supprime une entrée dans la liste
 function toBin() {
     this.parentNode.remove();
     const key = this.parentNode.getAttribute('data-key');
@@ -79,15 +81,25 @@ function toBin() {
     checkBookNumber()
 }
 
+// Sauvegarde l'objet dans le LocalStorage
 function saveObj() {
     window.localStorage.setItem('data', JSON.stringify(bookList));
 }
 
+// Cette fonction vérifie si un livre est présent dans la liste
 function checkBookNumber() {
     if (Object.keys(bookList).length === 0) {
-        noBook.classList.remove("hidden")
+        noBook.classList.remove("hidden") // Si oui, affiche le texte pour dire qu'il n'y a pas de livre
     }
     else {
-        noBook.classList.add("hidden")
+        noBook.classList.add("hidden") // Si non, cache le texte
     }
+}
+
+// Éditer une entrée dans la liste
+function editBook() {
+    const key = this.parentNode.getAttribute('data-key')
+    bookTitle.value = bookList[key].title
+    bookAuthor.value = bookList[key].author
+    bookPages.value = bookList[key].pages
 }
