@@ -154,3 +154,9 @@ p {
 .darkmode-img {
     background-color: rgb(148, 148, 148);
 }
+
+.tux {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
