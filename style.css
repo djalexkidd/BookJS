@@ -150,3 +150,7 @@ p {
     color: white;
     background-color: rgb(41, 41, 41);
 }
+
+.darkmode-img {
+    background-color: rgb(148, 148, 148);
+}
