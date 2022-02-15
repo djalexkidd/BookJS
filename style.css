@@ -42,7 +42,7 @@ h1 {
 
 /* Espacement des liens */
 .navbar li {
-    margin-right: 10px;
+    margin-right: 21px;
 }
 
 /* Désactive le soulignement des boutons */
@@ -144,4 +144,9 @@ p {
     .logo {
         height: 98px;
     }
+}
+
+.darkmode {
+    color: white;
+    background-color: rgb(41, 41, 41);
 }
