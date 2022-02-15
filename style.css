@@ -29,6 +29,7 @@ body {
 
 h1 {
     align-self: center;
+    text-align: center;
 }
 
 /* Barre de navigation */
@@ -44,6 +45,16 @@ h1 {
     margin-right: 10px;
 }
 
+/* Désactive le soulignement des boutons */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #0000ff;
+}
+
 /* CONTENU DE LA PAGE (main) */
 
 main {
@@ -52,6 +63,8 @@ main {
 
 form.form-entry {
     display: table;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 div.form-entry {
@@ -106,6 +119,7 @@ button {
     display: none;
 }
 
+/* Boutons supprimer et modifier */
 .trash, .edit {
     border: none;
     background: none;
@@ -121,6 +135,11 @@ button {
     border: solid 2px;
 }
 
+p {
+    text-align: center;
+}
+
+/* Réduit le logo pour les mobiles */
 @media (max-width:767px) {
     .logo {
         height: 98px;
