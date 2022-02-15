@@ -1,6 +1,7 @@
 const inputField = document.querySelectorAll("input")
 const sendForm = document.querySelector("form") // Bouton pour envoyer le formulaire
 const resetAll = document.querySelector(".button-erase") // Bouton pour effacer le formulaire
+const factoryReset = document.querySelector(".button-eraseall") // Bouton pour effacer le formulaire
 const listItems = document.querySelector('.list-items') // Liste des livres
 const noBook = document.querySelector('.no-book') // Texte quand il n'y a pas de livre dans la liste
 
@@ -19,6 +20,14 @@ resetAll.addEventListener('click', (e) => {
     for (let i = 0; i < inputField.length; i++) {
         inputField[i].value = ""
     }
+})
+
+// Efface le formulaire
+factoryReset.addEventListener('click', (e) => {
+    e.preventDefault()
+    bookList = {}
+    saveObj()
+    location.reload()
 })
 
 // Envoyer les informations du livre

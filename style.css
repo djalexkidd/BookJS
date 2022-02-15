@@ -104,12 +104,12 @@ button {
     border: solid 2px #4CAF50;
 }
 
-.button-erase {
+.button-erase, .button-eraseall {
     background-color: #f44336;
     border: solid 2px white;
 }
   
-.button-erase:hover {
+.button-erase:hover, .button-eraseall:hover {
     background-color: white;
     color: black;
     border: solid 2px #f44336;
