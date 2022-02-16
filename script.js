@@ -108,15 +108,17 @@ function checkBookNumber() {
 
 // Éditer une entrée dans la liste
 function editBook() {
-    const key = this.parentNode.getAttribute('data-key')
-    bookTitle.value = bookList[key].title
-    bookAuthor.value = bookList[key].author
-    bookPages.value = bookList[key].pages
+    if (bookTitle.value === "" && bookAuthor.value === "") {
+        const key = this.parentNode.getAttribute('data-key')
+        bookTitle.value = bookList[key].title
+        bookAuthor.value = bookList[key].author
+        bookPages.value = bookList[key].pages
 
-    this.parentNode.remove()
-    delete bookList[key]
+        this.parentNode.remove()
+        delete bookList[key]
 
-    checkBookNumber()
+        checkBookNumber()
+    }
 }
 
 bookPages.value = 1
